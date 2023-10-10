@@ -8,7 +8,9 @@ workflows:
           XCODE_PROJECT: "Eventee.xcodeproj" # <-- Put the name of your project here. 
           XCODE_SCHEME: "Eventee" # <-- Put the name of your scheme here.
     scripts:
-      - name: Run tests
+      - name: Build
+        working-directory: TestProj
+        run: xcodebuild build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
         script: |
           xcodebuild \
           -project "$XCODE_PROJECT" \
